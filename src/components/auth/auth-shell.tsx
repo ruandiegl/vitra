@@ -1,0 +1,7 @@
+import type { ReactNode } from "react";
+import { Logo } from "@/components/brand/logo";
+import { Check } from "lucide-react";
+
+export function AuthShell({ title, description, children, footer }: { title: string; description: string; children: ReactNode; footer?: ReactNode }) {
+  return <main id="conteudo" className="grid min-h-screen bg-white lg:grid-cols-[0.9fr_1.1fr]"><aside className="hidden flex-col justify-between bg-foreground p-12 text-white lg:flex"><Logo inverse /><div className="max-w-md"><p className="font-display text-5xl font-semibold leading-[1.08] tracking-[-0.04em]">Sua próxima cliente já está procurando por você.</p><ul className="mt-10 space-y-4 text-[#dbe2f5]">{["Uma página com a identidade do seu negócio", "Seus canais de contato em um só link", "Prévia antes de cada publicação"].map((item) => <li key={item} className="flex items-center gap-3"><span className="inline-flex size-6 items-center justify-center rounded-full bg-mint text-foreground"><Check className="size-4" /></span>{item}</li>)}</ul></div><p className="text-sm text-[#abb6d1]">Vitra · presença digital sem complicação</p></aside><section className="flex items-center justify-center bg-background px-5 py-10 sm:px-10"><div className="w-full max-w-md"><Logo className="mb-10 lg:hidden" /><h1 className="font-display text-4xl font-semibold tracking-[-0.035em]">{title}</h1><p className="mt-3 text-muted">{description}</p><div className="mt-8">{children}</div>{footer ? <div className="mt-6 text-center text-sm text-muted">{footer}</div> : null}</div></section></main>;
+}
